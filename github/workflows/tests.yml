@@ -1,0 +1,10 @@
+
+stage: test_stage 
+  strategy:
+    matrix: 
+     Dev_build:
+       build_type: "dev"
+     Rel_Build:
+       build_type: "rel"
+          
+    
