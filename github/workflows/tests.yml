@@ -1,7 +1,10 @@
 
-First name: richard
-age: 30
-adress:
-    street: 123 main main
-    city: Bowling Green 
-    state: KY 
+stage: test_stage 
+  strategy:
+    matrix: 
+     Dev_build:
+       build_type: "dev"
+     Rel_Build:
+       build_type: "rel"
+          
+    
