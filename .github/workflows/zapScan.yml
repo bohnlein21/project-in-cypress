@@ -1,5 +1,6 @@
-  steps:
-  name: ZAP Scan
+steps:
+  - name: ZAP Scan
     uses: zaproxy/action-baseline@v0.12.0
     with:
-      target:  'https://juice-shop.herokuapp.com/#/search'
+      target: 'https://juice-shop.herokuapp.com/#/search'
+
