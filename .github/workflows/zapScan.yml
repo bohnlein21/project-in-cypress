@@ -1,0 +1,26 @@
+name: ZAP Baseline Scan
+permissions:
+  issues: write
+
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  zap-scan:
+    name: ZAP Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.12.0
+        with:
+          target: 'https://juice-shop.herokuapp.com/#/search'
