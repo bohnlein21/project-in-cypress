@@ -1,0 +1,29 @@
+stages:
+  - zap_baseline_scan
+
+variables:
+  ZAP_HOST: "thinking-tester-contact-list.herokuapp.com"
+  ZAP_PORT: 443
+  ZAP_SCHEME: "https"
+
+zap_baseline_scan:
+  stage: zap_baseline_scan
+  image: owasp/zap2docker-stable
+  script:
+    - >
+      zap-baseline.py
+      -t ${ZAP_SCHEME}://${ZAP_HOST}
+      -r zap_report.html
+      -I
+      -j
+      -m 2
+      -d
+      --auto
+
+  artifacts:
+    paths:
+      - zap_report.html
+    when: always
+
+  allow_failure: true
+
